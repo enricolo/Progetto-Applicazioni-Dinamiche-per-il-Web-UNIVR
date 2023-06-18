@@ -30,7 +30,7 @@ const checkUser = async (req, res) => {
 
 app.use(checkUser);
 
-app.use("/graphql", cors() ,graphqlHTTP(req => ({
+app.use("/graphql", cors({origin: "http://localhost:4200"}) ,graphqlHTTP(req => ({
     schema: schema,
     graphiql: process.env.NODE_ENV === 'development',
     context: {
